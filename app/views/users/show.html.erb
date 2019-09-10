@@ -1,0 +1,15 @@
+<% provide(:navigation_url, "/sql") %>
+<% provide(:navigation_text, "SQL") %>
+	<center>
+	<div class="projects">
+			<%= form_for(@project, remote: true) do |f| %>
+				<%= f.text_field :name %>
+				<%= f.submit "Add TODO List", class: "ion-plus", id: "new_project_button"%> <!-- id used by JS -->
+			<% end %>
+		<br>
+		<div>
+			<%= render 'shared/projects' %>
+		</div>
+	</div>
+	</center>
+<% end %>

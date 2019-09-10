@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TaskManager</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" %>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>
+<body>
+	<%= render 'layouts/header' %>
+	<% flash.each do |message_type, message| %>
+	  <div class="alert alert-<%= message_type %>"><%= message %></div>
+	<% end %>
+	<%= yield %>
+	<div id="notify" class="notify-error">
+		<div class="notify-title">Error!</div>
+		<div class="notify-text">Error!</div>
+	</div>
+	<%= render 'layouts/footer' %>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

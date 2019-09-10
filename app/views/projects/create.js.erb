@@ -1,0 +1,12 @@
+<% if @project.valid?%>
+	$("#projects").prepend("<%= escape_javascript("#{render :partial => 'projects/project', :locals => { project: @project }}").html_safe %>");
+	
+
+	$('#project<%= @project.id %>').children().hide();
+	$('#project<%= @project.id %>').animate({'margin-bottom':'190px'},300, "swing", function() {
+		$('#project<%= @project.id %>').css({'margin-bottom':'40px'});
+		$('#project<%= @project.id %>').children().fadeIn(300);
+	});
+	
+<% end %>
+
